@@ -23,11 +23,11 @@ Are you tired of your IDE AI Agent losing context during long coding sessions? D
 
 ```mermaid
 graph TD;
-    User[👶 User] -- "/dispatch" --> Manager[🧠 Layer 3: Manager / Router (Global Rule)]
-    Manager -- Generates --> Token[🎫 Hand-off Token]
-    Token -. User pastes into new chat .-> NewChat[💬 New IDE Chat Window]
-    NewChat -- "/switch" --> Persona[🎭 Layer 2: Expert Persona loaded from Skills/]
-    Persona -- "load_context()" --> MCP[(💾 Layer 1: Persistent MCP Brain / SQLite)]
+    User["👶 User"] -- "/dispatch" --> Manager["🧠 Layer 3: Manager / Router (Global Rule)"]
+    Manager -- Generates --> Token["🎫 Hand-off Token"]
+    Token -. User pastes into new chat .-> NewChat["💬 New IDE Chat Window"]
+    NewChat -- "/switch" --> Persona["🎭 Layer 2: Expert Persona loaded from Skills/"]
+    Persona -- "load_context()" --> MCP[("💾 Layer 1: Persistent MCP Brain / SQLite")]
     MCP -- Recalls State --> Persona
     Persona -- "/handoff" --> MCP
 ```
@@ -60,9 +60,24 @@ Append the contents of `Global_Rule_Template.md` into your IDE's system/global p
 
 ## 🛠 Directory Structure
 
-- `mcp_server/`: The Python daemon bridging the IDE with local SQLite.
-- `global_workflows/`: `/dispatch`, `/switch`, `/handoff`, `/status` logic.
-- `skills_template/`: Pre-configured expert personas (Academic Writer, Research Coder, Java Engineer, Office Automator). Update these markdown files to inject your own expert knowledge!
+```text
+IDE-Multi-Agent-Protocol/
+├── Global_Rule_Template.md      # 核心路由大脑 (Manager System Prompt)
+├── install.sh                   # 一键自动化安装脚本 (Auto-deployment)
+├── global_workflows/            # 自动化调度流 (Routing & Automation)
+│   ├── dispatch.md              # 🎯 分析意图并生成握手令牌
+│   ├── switch.md                # 🔄 解析令牌，恢复上下文并加载角色
+│   ├── handoff.md               # 💾 会话过长时，存盘并生成交接令牌
+│   └── status.md                # 📊 查看项目与所有角色的大盘状态
+├── mcp_server/                  # 持久化记忆层 (Layer 1: Memory)
+│   ├── research_brain_server.py # 基于 SQLite 的 MCP 守护进程
+│   └── requirements.txt         # 依赖: mcp[cli]
+└── skills_template/             # 专家人格库 (Layer 2: Experts)
+    ├── academic/SKILL.md        # 🎓 学术写作规范与流程
+    ├── java-engineer/SKILL.md   # ⚙️ Java 后端工程标准
+    ├── office/SKILL.md          # 📄 Office 办公自动化
+    └── research/SKILL.md        # 🔬 深度学习科研实验指南
+```
 
 ## 📜 License
 MIT License. Built by builders, for builders.
