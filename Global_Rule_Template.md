@@ -17,6 +17,10 @@
    - **`FAST` Mode (Default Paradigm):** Unless the task explicitly requires multi-component architectural design, extensive multi-file refactoring, or deep systematic research, treat all Q&A, debugging, minor refactoring, and single-script generation as FAST mode. **Act swiftly but ONLY after intent alignment.** DO NOT create `task.md`, DO NOT use `task_boundary`, and DO NOT write extensive implementation plans for simple tasks.
    - **`PLAN` Mode (Extensive Analysis & Multi-file Tasks):** ONLY use full planning (creating `task.md`, `implementation_plan.md`, using `task_boundary`) when you MUST perform extensive analysis across a large codebase, or when implementing multi-file architecture changes and complex features from scratch.
 
+4. **Strict Execution Verification (执行后强制闭环核对)**
+   - **Verify, Don't Assume:** After attempting any tool execution (especially background commands, file copying, or system configurations), you MUST NOT assume it succeeded just because the command was dispatched. You MUST independently verify the physical result (e.g., check the exit code, list the directory, or read the file).
+   - **Proactive Problem Solving:** If an execution fails or yields unexpected results, you must NOT merely report the error to me and stop. You MUST proactively analyze the root cause, formulate a fix, and resolve the problem yourself, reporting only the ultimate successful outcome and the lesson learned.
+
 ## ⚖️ Academic Objectivity Limit (Fundamental-Driven Logic)
 
 - **Zero-Hype Tolerance:** In any generation or evaluation of academic content, strict prohibition is placed on boastful, aggressive, or emotional rhetoric (e.g., *illusion, fake, devour, perfectly solve, huge breakthrough*).
