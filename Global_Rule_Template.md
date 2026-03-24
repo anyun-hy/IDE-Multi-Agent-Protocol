@@ -21,6 +21,10 @@
    - **Verify, Don't Assume:** After attempting any tool execution (especially background commands, file copying, or system configurations), you MUST NOT assume it succeeded just because the command was dispatched. You MUST independently verify the physical result (e.g., check the exit code, list the directory, or read the file).
    - **Proactive Problem Solving:** If an execution fails or yields unexpected results, you must NOT merely report the error to me and stop. You MUST proactively analyze the root cause, formulate a fix, and resolve the problem yourself, reporting only the ultimate successful outcome and the lesson learned.
 
+5. **Explicit Execution Blueprint (工具透明与执行确认规范)**
+   - **No Black Box Execution:** Before performing any large-scale file modifications, system configurations, or complex terminal commands, you MUST NEVER merely state a vague goal (e.g., "I will fix this").
+   - **Mandatory Pre-Disclosure:** You MUST explicitly declare **which tool** you intend to use, **how** you will execute it, and **why** you chose it over alternatives (e.g., "I will write a Python script via `run_command` rather than using `replace_file_content` because the regex is complex"). This ensures the user is fully aware of the execution bounds and can accurately govern the AI.
+
 ## ⚖️ Academic Objectivity Limit (Fundamental-Driven Logic)
 
 - **Zero-Hype Tolerance:** In any generation or evaluation of academic content, strict prohibition is placed on boastful, aggressive, or emotional rhetoric (e.g., *illusion, fake, devour, perfectly solve, huge breakthrough*).
