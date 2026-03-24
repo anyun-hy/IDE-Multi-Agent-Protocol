@@ -1,3 +1,5 @@
+**English** | [中文说明](README_zh.md)
+
 # IDE Multi-Agent Protocol (IMAP)
 
 **Zero-Dependency, Fully Local, Context-Persistent Multi-Agent Architecture for IDEs.**
@@ -62,21 +64,21 @@ Append the contents of `Global_Rule_Template.md` into your IDE's system/global p
 
 ```text
 IDE-Multi-Agent-Protocol/
-├── Global_Rule_Template.md      # 核心路由大脑 (Manager System Prompt)
-├── install.sh                   # 一键自动化安装脚本 (Auto-deployment)
-├── global_workflows/            # 自动化调度流 (Routing & Automation)
-│   ├── dispatch.md              # 🎯 分析意图并生成握手令牌
-│   ├── switch.md                # 🔄 解析令牌，恢复上下文并加载角色
-│   ├── handoff.md               # 💾 会话过长时，存盘并生成交接令牌
-│   └── status.md                # 📊 查看项目与所有角色的大盘状态
-├── mcp_server/                  # 持久化记忆层 (Layer 1: Memory)
-│   ├── research_brain_server.py # 基于 SQLite 的 MCP 守护进程
-│   └── requirements.txt         # 依赖: mcp[cli]
-└── skills_template/             # 专家人格库 (Layer 2: Experts)
-    ├── academic/SKILL.md        # 🎓 学术写作规范与流程
-    ├── java-engineer/SKILL.md   # ⚙️ Java 后端工程标准
-    ├── office/SKILL.md          # 📄 Office 办公自动化
-    └── research/SKILL.md        # 🔬 深度学习科研实验指南
+├── Global_Rule_Template.md      # Manager System Prompt
+├── install.sh                   # Auto-deployment script
+├── global_workflows/            # Routing & Automation Workflows
+│   ├── dispatch.md              # 🎯 Analyze intent & generate Handoff Token
+│   ├── switch.md                # 🔄 Parse Token, restore context & load Persona
+│   ├── handoff.md               # 💾 Save state & generate Hand-off Token
+│   └── status.md                # 📊 View global project/state board
+├── mcp_server/                  # Layer 1: Memory Persistence
+│   ├── research_brain_server.py # SQLite-backed MCP Daemon
+│   └── requirements.txt         # Dependencies: mcp[cli]
+└── skills_template/             # Layer 2: Expert Personas
+    ├── academic/SKILL.md        # 🎓 Academic writing workflow
+    ├── java-engineer/SKILL.md   # ⚙️ Java backend engineering standard
+    ├── office/SKILL.md          # 📄 Office automation
+    └── research/SKILL.md        # 🔬 Deep learning research guide
 ```
 
 ## 📜 License
